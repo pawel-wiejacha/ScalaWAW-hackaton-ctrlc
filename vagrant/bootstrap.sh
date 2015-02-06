@@ -1,9 +1,14 @@
+#
+# script executed by Vagrant Shell Provisioner
+#
+
 # setup FS hierarchy
-mkdir -p /opt
+sudo mkdir -p /opt
+sudo hown vagrant:users /opt
 
 # Install dev tools: jdk, git etc...
-apt-get update
-apt-get install -y openjdk-6-jdk git wget
+sudo apt-get update
+sudo apt-get install -y openjdk-6-jdk git wget
 
 # download sbt binaries
 cd /opt
@@ -24,7 +29,7 @@ git checkout 0.13.7
 grep -q JAVA_HOME ~/.env || { 
     echo 'export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64' >> ~/.env
     echo 'export PATH=$PATH:/opt/sbt/bin' >> ~/.env
-    cat ~/.env >> ~/.bashrc
+    echo 'source ~/.env' >> ~/.bashrc
 }
 
 source ~/.env
@@ -35,5 +40,5 @@ sbt -mem 6000 compile test package publishLocal
  
 # build sbt
 cd /shared/sbt
-sbt -mem 6000 compile test package publishLocal
-
+sbt -mem 6000 compile test package publishLocal # 1 test fails
+sbt -mem 6000 compile package publishLocal

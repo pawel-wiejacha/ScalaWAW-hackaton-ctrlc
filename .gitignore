@@ -1,4 +1,4 @@
-.vagrant/
+vagrant/.vagrant/
 shared/sbt
 shared/scalatest
 shared/sample_app/target
