@@ -21,15 +21,16 @@ cd /shared/sbt
 git checkout 0.13.7
 
 # setup environment variables
-grep -q JAVA_HOME ~/.bashrc || { 
-    echo 'export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64' >> ~/.bashrc
-    echo 'export PATH=$PATH:/opt/sbt/bin' >> ~/.bashrc
+grep -q JAVA_HOME ~/.env || { 
+    echo 'export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64' >> ~/.env
+    echo 'export PATH=$PATH:/opt/sbt/bin' >> ~/.env
+    cat ~/.env >> ~/.bashrc
 }
 
-source ~/.bashrc
+source ~/.env
 
 # build scalatest
-cd /shared/scalateset
+cd /shared/scalatest
 sbt -mem 6000 compile test package publishLocal
  
 # build sbt
