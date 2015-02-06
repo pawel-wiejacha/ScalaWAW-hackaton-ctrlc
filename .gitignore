@@ -1,3 +1,5 @@
 .vagrant/
 shared/sbt
 shared/scalatest
+shared/sample_app/target
+shared/sample_app/project/target
