@@ -1,7 +1,11 @@
 Development environment for [ScalaWAW hackaton #2 - fixing CTRL+C in SBT](http://www.meetup.com/ScalaWAW/events/220284839/)
 
 ```bash
+cd vagrant
 sudo vagrant up
+
+sudo vagrant ssh
+cd /shared
 ```
 
 If it does not work, try:

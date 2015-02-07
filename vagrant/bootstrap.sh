@@ -4,7 +4,7 @@
 
 # setup FS hierarchy
 sudo mkdir -p /opt
-sudo hown vagrant:users /opt
+sudo chown vagrant:users /opt
 
 # Install dev tools: jdk, git etc...
 sudo apt-get update
@@ -42,3 +42,9 @@ sbt -mem 6000 compile test package publishLocal
 cd /shared/sbt
 sbt -mem 6000 compile test package publishLocal # 1 test fails
 sbt -mem 6000 compile package publishLocal
+
+# build sample_app
+cd /shared/sample_app/
+sbt test
+
+
