@@ -25,6 +25,8 @@ git clone https://github.com/pawel-wiejacha/scalatest.git
 cd /shared/sbt
 git checkout 0.13.7
 
+touch ~/.env
+
 # setup environment variables
 grep -q JAVA_HOME ~/.env || { 
     echo 'export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64' >> ~/.env
