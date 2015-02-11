@@ -23,7 +23,7 @@ test -d /shared/sbt || git clone https://github.com/pawel-wiejacha/sbt.git
 test -d /shared/scalatest || git clone https://github.com/pawel-wiejacha/scalatest.git
 
 cd /shared/sbt
-git checkout 0.13.7
+git checkout -q 0.13.7
 
 touch ~/.env
 
