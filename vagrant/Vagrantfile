@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
     d.build_dir = '.'
     d.has_ssh = true
     d.privileged = true # to get pwdx, lsof, /proc/PID/fd, etc. working
+    d.vagrant_vagrantfile = "#{File.dirname(__FILE__)}/Vagrantfile_docker_host" unless RUBY_PLATFORM =~ /linux/ 
   end
 
   config.vm.synced_folder '../shared/', '/shared', mount_options: ["dmode=775,fmode=664"]

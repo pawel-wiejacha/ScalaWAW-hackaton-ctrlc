@@ -19,11 +19,13 @@ rm -rf sbt-0.13.7.tgz
 # download sbt and scalatest sources
 cd /shared
 
-git clone https://github.com/pawel-wiejacha/sbt.git        
-git clone https://github.com/pawel-wiejacha/scalatest.git
+test -d /shared/sbt || git clone https://github.com/pawel-wiejacha/sbt.git        
+test -d /shared/scalatest || git clone https://github.com/pawel-wiejacha/scalatest.git
 
 cd /shared/sbt
-git checkout 0.13.7
+git checkout -q 0.13.7
+
+touch ~/.env
 
 # setup environment variables
 grep -q JAVA_HOME ~/.env || { 
@@ -36,12 +38,12 @@ source ~/.env
 
 # build scalatest
 cd /shared/scalatest
-sbt -mem 6000 compile test package publishLocal
+sbt compile test package publishLocal
  
 # build sbt
 cd /shared/sbt
-sbt -mem 6000 compile test package publishLocal # 1 test fails
-sbt -mem 6000 compile package publishLocal
+sbt compile test package publishLocal # 1 test fails
+sbt compile package publishLocal
 
 # build sample_app
 cd /shared/sample_app/
