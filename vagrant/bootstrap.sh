@@ -38,12 +38,12 @@ source ~/.env
 
 # build scalatest
 cd /shared/scalatest
-sbt -mem 6000 compile test package publishLocal
+sbt compile test package publishLocal
  
 # build sbt
 cd /shared/sbt
-sbt -mem 6000 compile test package publishLocal # 1 test fails
-sbt -mem 6000 compile package publishLocal
+sbt compile test package publishLocal # 1 test fails
+sbt compile package publishLocal
 
 # build sample_app
 cd /shared/sample_app/

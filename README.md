@@ -18,3 +18,5 @@ dpkg -i vagrant_1.7.2_x86_64.deb
 ```
 
 first.
+
+If running from OSX, please, have Vagrant 1.7.2 installed.
