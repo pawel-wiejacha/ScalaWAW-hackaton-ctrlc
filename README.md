@@ -20,3 +20,5 @@ dpkg -i vagrant_1.7.2_x86_64.deb
 first.
 
 If running from OSX, please, have Vagrant 1.7.2 installed.
+
+[![Join the chat at https://gitter.im/pawel-wiejacha/ScalaWAW-hackaton-ctrlc](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pawel-wiejacha/ScalaWAW-hackaton-ctrlc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
