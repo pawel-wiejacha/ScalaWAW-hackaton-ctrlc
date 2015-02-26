@@ -21,6 +21,7 @@ cd /shared
 
 test -d /shared/sbt || git clone https://github.com/pawel-wiejacha/sbt.git        
 test -d /shared/scalatest || git clone https://github.com/pawel-wiejacha/scalatest.git
+test -d /shared/test-interface || git clone https://github.com/pawel-wiejacha/test-interface.gi
 
 cd /shared/sbt
 git checkout -q 0.13.7
@@ -35,6 +36,10 @@ grep -q JAVA_HOME ~/.env || {
 }
 
 source ~/.env
+
+# build test-interface
+cd /shared/test-interface
+sbt compile test package publish-local
 
 # build scalatest
 cd /shared/scalatest
